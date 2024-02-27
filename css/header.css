@@ -1,0 +1,232 @@
+/*
+////////////H\
+////////////E\////////////////////
+////////////A\///HEADER/////////////////
+////////////D\/////////////////////
+////////////E\////////////////////
+////////////R\
+*/
+/**************************************/
+
+.header {
+   position: fixed;
+   width: 100%;
+   top: 0;
+   left: 0;
+   border-bottom: 1px solid rgba(238, 238, 238, 0.1);
+   background-color: #222831;
+   z-index: 50;
+}
+
+/**************************************/
+
+.header__container {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   min-height: 90px;
+   grid-area: 15px;
+ 
+
+}
+
+/**************************************/
+
+
+/**************************************/
+
+.menu__list {
+   display: flex;
+   flex-wrap: wrap;
+   column-gap: 40px;
+   row-gap: 3px;
+   align-items: center;
+   
+}
+
+
+/**************menu-link************************/
+
+.menu__link:focus{
+   color: rgba(0, 172, 181, 0.755);
+
+
+}
+
+
+.menu__link {
+   position: relative;
+   transition: all 0.3s ease 0s;
+   color: rgba(238, 238, 238, 0.75);
+
+}
+
+.menu__link:hover{
+   color: rgba(0, 172, 181, 0.755);
+
+}
+
+.menu__link:focus::after,
+.menu__link:hover::after{
+   position: absolute;
+   left: 3px;
+   bottom: -8px;
+   content: "";
+   width: 90%;
+   height: 2.5px;
+   background-color: #ffffff;
+   border-radius: 3px;
+   -webkit-animation: scale-up-hor-left 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+   animation: scale-up-hor-left 0.5s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-up-hor-left
+ * ----------------------------------------
+ */
+
+ @-webkit-keyframes scale-up-hor-left {
+   0% {
+     -webkit-transform: scaleX(0.4);
+             transform: scaleX(0.4);
+     -webkit-transform-origin: 0% 0%;
+             transform-origin: 0% 0%;
+   }
+   100% {
+     -webkit-transform: scaleX(1);
+             transform: scaleX(1);
+     -webkit-transform-origin: 0% 0%;
+             transform-origin: 0% 0%;
+   }
+ }
+ @keyframes scale-up-hor-left {
+   0% {
+     -webkit-transform: scaleX(0.4);
+             transform: scaleX(0.4);
+     -webkit-transform-origin: 0% 0%;
+             transform-origin: 0% 0%;
+   }
+   100% {
+     -webkit-transform: scaleX(1);
+             transform: scaleX(1);
+     -webkit-transform-origin: 0% 0%;
+             transform-origin: 0% 0%;
+   }
+ }
+
+/*************burger*************************/
+.icon-menu {
+   display: none;
+
+}
+
+/****************adapdive-header**********************/
+
+@media(max-width:700px){
+/************buttons-burger**************************/
+   .header__container {
+       min-height: 50px;
+   }
+
+   .icon-menu{
+      display: block;
+      position: relative;
+      z-index: 5;
+      width: 30px;
+      height: 20px;
+     
+     
+
+   }
+
+   .icon-menu__line,
+   .icon-menu::after,
+   .icon-menu::before{
+      content: "";
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 0.125rem;
+      background-color: #fff;
+      transition: all 0.3s;
+   }
+
+   .menu-open .icon-menu__line{
+      display: none;
+   }
+
+   .icon-menu::before{
+      top: 0;
+   }
+   .icon-menu::after{
+      bottom: 0;
+   }
+
+   .icon-menu__line{
+      top: calc(50% - 0.0625rem);
+   }
+
+   .menu-open .icon-menu__line{
+      top: calc(50% - 00.0625rem);
+   }
+
+   .menu-open .icon-menu::after{
+      bottom: calc(50% - 00.0625rem);
+      transform: rotate(-45deg);
+   }
+  
+   .menu-open .icon-menu::before{
+      top: calc(50% - 00.0625rem);
+      transform: rotate(45deg);
+
+      
+   }
+   
+   
+
+
+/**************************************/
+    
+   .menu__body{
+      position: fixed;
+      width: 100%;
+      height: 100%;
+      top: -100%;
+      left: 0;
+
+      transition: top 0.7s;
+      background-color: #222831c7;
+   }
+
+   .menu-open .menu__body{
+      top: 0;
+   }
+
+/*************burger-text*************************/
+   .header__logo{
+      z-index: 5;
+   }
+
+   .menu__list{
+      flex-direction: column;
+      justify-content: center;
+      font-size: 40px;
+      min-height: 100%;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+      
+
+   }
+
+.menu__link {
+      color: #eeee;
+   }
+   
+   .menu__link:hover::after{
+      display: none;
+   }
+
+
+}
